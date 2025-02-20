@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const About = () => {
   return (
     <div>
@@ -7,6 +9,9 @@ const About = () => {
         Excepteur do proident commodo ea cillum mollit. Ut occaecat fugiat eu ea. Laborum commodo ea reprehenderit
         cillum sit.
       </p>
+      <Link href='/' className='font-semibold hover:text-text_color'>
+        Go to Home
+      </Link>
     </div>
   );
 };

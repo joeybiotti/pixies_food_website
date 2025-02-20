@@ -10,17 +10,8 @@ import Footer from './components/Footer';
 export default function Home() {
   const [showMainContent, setShowMainContent] = useState('main'); // state to toggle between components
 
-  const toggleContent = () => {
-    setShowMainContent((prev) => {
-      switch (prev) {
-        case 'main':
-          return 'about';
-        case 'about':
-          return 'contact';
-        default:
-          return 'main';
-      }
-    });
+  const toggleContent = (content) => {
+    setShowMainContent(content); // switch to the specified content directly
   };
 
   const renderContent = () => {
@@ -37,12 +28,12 @@ export default function Home() {
   };
 
   return (
-    <div className='grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-[80vh] p-8 pb-20 gap-12 sm:p-16 font-[family-name:var(--font-geist-sans)]'>
+    <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16 font-[family-name:var(--font-geist-sans)]'>
       {/* Pass toggleContent as a prop to Navbar */}
       <Navbar toggleContent={toggleContent} />
 
       {/* Conditionally render MainContent, About, or Contact */}
-      {renderContent()}
+      <div className='flex-grow'>{renderContent()}</div>
 
       {/* Footer */}
       <Footer />
