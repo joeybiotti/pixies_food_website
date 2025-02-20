@@ -15,42 +15,51 @@ const Navbar = ({ toggleContent }) => {
         <div className='flex justify-between items-center px-6'>
           <ul className='hidden lg:flex gap-6 text-lg'>
             <li>
-              <button onClick={() => toggleContent('main')} className='font-semibold hover:text-text_color pl-2'>
+              <button
+                onClick={() => toggleContent('main')}
+                className='font-semibold hover:text-text_color pl-2'
+                aria-label='Home'>
                 Home
               </button>
             </li>
             <li>
-              <button onClick={() => toggleContent('about')} className='font-semibold hover:text-text_color pl-2'>
+              <button
+                onClick={() => toggleContent('about')}
+                className='font-semibold hover:text-text_color pl-2'
+                aria-label='About'>
                 About
               </button>
             </li>
             <li>
-              <button onClick={() => toggleContent('contact')} className='font-semibold hover:text-text_color pl-2'>
+              <button
+                onClick={() => toggleContent('contact')}
+                className='font-semibold hover:text-text_color pl-2'
+                aria-label='Contact'>
                 Contact
               </button>
             </li>
           </ul>
 
           <div className='hidden lg:flex gap-6'>
-            <Link href='#Instagram' className='text-xl hover:text-blue-500'>
+            <Link href='#Email' className='text-xl hover:text-blue-500' aria-label='Email'>
               <FontAwesomeIcon icon={faEnvelope} className='text-text_color' />
             </Link>
-            <Link href='#Instagram' className='text-xl hover:text-blue-500'>
+            <Link href='#Instagram' className='text-xl hover:text-blue-500' aria-label='Instagram'>
               <FontAwesomeIcon icon={faInstagram} className='text-text_color' />
             </Link>
-            <Link href='#facebook' className='text-xl hover:text-blue-500'>
+            <Link href='#Facebook' className='text-xl hover:text-blue-500' aria-label='Facebook'>
               <FontAwesomeIcon icon={faSquareFacebook} className='text-text_color' />
             </Link>
-            <Link href='#facebook' className='text-xl hover:text-blue-500'>
+            <Link href='#Bluesky' className='text-xl hover:text-blue-500' aria-label='Bluesky'>
               <FontAwesomeIcon icon={faBluesky} className='text-text_color' />
             </Link>
-            <Link href='#facebook' className='text-xl hover:text-blue-500'>
+            <Link href='#TikTok' className='text-xl hover:text-blue-500' aria-label='TikTok'>
               <FontAwesomeIcon icon={faTiktok} className='text-text_color' />
             </Link>
           </div>
 
           <div className='block lg:hidden'>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='text-xl'>
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='text-xl' aria-label='Menu'>
               {isMenuOpen ? '✖' : '☰'}
             </button>
           </div>
@@ -60,17 +69,26 @@ const Navbar = ({ toggleContent }) => {
           <div className='lg:hidden'>
             <ul className='space-y-4'>
               <li>
-                <button onClick={() => toggleContent('main')} className='font-semibold hover:text-text_color pl-2'>
+                <button
+                  onClick={() => toggleContent('main')}
+                  className='font-semibold hover:text-text_color pl-2'
+                  aria-label='Home'>
                   Home
                 </button>
               </li>
               <li>
-                <button onClick={() => toggleContent('about')} className='font-semibold hover:text-text_color pl-2'>
+                <button
+                  onClick={() => toggleContent('about')}
+                  className='font-semibold hover:text-text_color pl-2'
+                  aria-label='About'>
                   About
                 </button>
               </li>
               <li>
-                <button onClick={() => toggleContent('contact')} className='font-semibold hover:text-text_color pl-2'>
+                <button
+                  onClick={() => toggleContent('contact')}
+                  className='font-semibold hover:text-text_color pl-2'
+                  aria-label='Contact'>
                   Contact
                 </button>
               </li>
