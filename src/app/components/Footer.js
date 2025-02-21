@@ -7,22 +7,31 @@ const Footer = () => {
   return (
     <footer className='bg-black-800 text-white py-4'>
       <div className='flex flex-col items-center'>
-        <p className='text-xs'>&copy; {new Date().getFullYear()} Pixie Food Company. All rights reserved.</p>
-        <div className='flex gap-4 mt-6'>
-          <Link href='mailto:your-email@example.com' className='text-lg hover:text-blue-500'>
-            <FontAwesomeIcon icon={faEnvelope} className='text-text_color' />
+        <p className='text-xs mb-2'>&copy; {new Date().getFullYear()} Pixie Food Company. All rights reserved.</p>
+        <div className='flex gap-4'>
+          <Link href='mailto:your-email@example.com' className='text-lg hover:text-blue-500' aria-label='Email us'>
+            <FontAwesomeIcon icon={faEnvelope} className='text-primaryText' />
           </Link>
-          <Link href='https://www.instagram.com/yourprofile' className='text-lg hover:text-blue-500'>
-            <FontAwesomeIcon icon={faInstagram} className='text-text_color' />
+          <Link
+            href='https://www.instagram.com/yourprofile'
+            className='text-lg hover:text-blue-500'
+            aria-label='Instagram'>
+            <FontAwesomeIcon icon={faInstagram} className='text-primaryText' />
           </Link>
-          <Link href='https://www.facebook.com/yourprofile' className='text-lg hover:text-blue-500'>
-            <FontAwesomeIcon icon={faSquareFacebook} className='text-text_color' />
+          <Link
+            href='https://www.facebook.com/yourprofile'
+            className='text-lg hover:text-blue-500'
+            aria-label='Facebook'>
+            <FontAwesomeIcon icon={faSquareFacebook} className='text-primaryText' />
           </Link>
-          <Link href='https://bsky.app/profile/yourprofile' className='text-lg hover:text-blue-500'>
-            <FontAwesomeIcon icon={faBluesky} className='text-text_color' />
+          <Link
+            href='https://bsky.app/profile/yourprofile'
+            className='text-lg hover:text-blue-500'
+            aria-label='Bluesky'>
+            <FontAwesomeIcon icon={faBluesky} className='text-primaryText' />
           </Link>
-          <Link href='https://www.tiktok.com/@yourprofile' className='text-lg hover:text-blue-500'>
-            <FontAwesomeIcon icon={faTiktok} className='text-text_color' />
+          <Link href='https://www.tiktok.com/@yourprofile' className='text-lg hover:text-blue-500' aria-label='TikTok'>
+            <FontAwesomeIcon icon={faTiktok} className='text-primaryText' />
           </Link>
         </div>
       </div>

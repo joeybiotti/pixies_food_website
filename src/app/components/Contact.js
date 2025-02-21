@@ -8,8 +8,19 @@ const Contact = () => {
         <p className='mb-1'>
           Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
         </p>
+        <a href='mailto:joey@withthepixies.com' className='text-blue-500 hover:underline' aria-label='Email us'>
+          Email us!
+        </a>
         <div className='flex justify-center my-8'>
-          <Image src='/pixie_logo.png' alt='Pixie logo' width={200} height={167} priority className='p-4' />
+          <Image
+            src='/pixie_logo.png'
+            alt='Pixie logo'
+            width={200}
+            height={167}
+            priority
+            className='p-4'
+            aria-label='Pixie logo'
+          />
         </div>
       </div>
     </div>
