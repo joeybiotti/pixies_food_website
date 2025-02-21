@@ -1,10 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faSquareFacebook, faBluesky, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
