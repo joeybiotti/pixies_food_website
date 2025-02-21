@@ -35,37 +35,6 @@ const Navbar = ({ toggleContent }) => {
               </button>
             </li>
           </ul>
-
-          {/* <div className='hidden lg:flex gap-6'>
-            <Link href='mailto:your-email@example.com' className='text-xl hover:text-blue-500' aria-label='Email'>
-              <FontAwesomeIcon icon={faEnvelope} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.instagram.com/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Instagram'>
-              <FontAwesomeIcon icon={faInstagram} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.facebook.com/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Facebook'>
-              <FontAwesomeIcon icon={faSquareFacebook} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://bsky.app/profile/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Bluesky'>
-              <FontAwesomeIcon icon={faBluesky} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.tiktok.com/@yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='TikTok'>
-              <FontAwesomeIcon icon={faTiktok} className='text-primarytext' />
-            </Link>
-          </div> */}
-
           <div className='block lg:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
