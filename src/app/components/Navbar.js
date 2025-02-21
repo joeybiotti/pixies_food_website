@@ -17,7 +17,7 @@ const Navbar = ({ toggleContent }) => {
             <li>
               <button
                 onClick={() => toggleContent('main')}
-                className='font-semibold hover:text-text_color pl-2'
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                 aria-label='Home'>
                 Home
               </button>
@@ -25,7 +25,7 @@ const Navbar = ({ toggleContent }) => {
             <li>
               <button
                 onClick={() => toggleContent('about')}
-                className='font-semibold hover:text-text_color pl-2'
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                 aria-label='About'>
                 About
               </button>
@@ -33,33 +33,48 @@ const Navbar = ({ toggleContent }) => {
             <li>
               <button
                 onClick={() => toggleContent('contact')}
-                className='font-semibold hover:text-text_color pl-2'
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                 aria-label='Contact'>
                 Contact
               </button>
             </li>
           </ul>
 
-          <div className='hidden lg:flex gap-6'>
-            <Link href='#Email' className='text-xl hover:text-blue-500' aria-label='Email'>
-              <FontAwesomeIcon icon={faEnvelope} className='text-text_color' />
+          {/* <div className='hidden lg:flex gap-6'>
+            <Link href='mailto:your-email@example.com' className='text-xl hover:text-blue-500' aria-label='Email'>
+              <FontAwesomeIcon icon={faEnvelope} className='text-primarytext' />
             </Link>
-            <Link href='#Instagram' className='text-xl hover:text-blue-500' aria-label='Instagram'>
-              <FontAwesomeIcon icon={faInstagram} className='text-text_color' />
+            <Link
+              href='https://www.instagram.com/yourprofile'
+              className='text-xl hover:text-blue-500'
+              aria-label='Instagram'>
+              <FontAwesomeIcon icon={faInstagram} className='text-primarytext' />
             </Link>
-            <Link href='#Facebook' className='text-xl hover:text-blue-500' aria-label='Facebook'>
-              <FontAwesomeIcon icon={faSquareFacebook} className='text-text_color' />
+            <Link
+              href='https://www.facebook.com/yourprofile'
+              className='text-xl hover:text-blue-500'
+              aria-label='Facebook'>
+              <FontAwesomeIcon icon={faSquareFacebook} className='text-primarytext' />
             </Link>
-            <Link href='#Bluesky' className='text-xl hover:text-blue-500' aria-label='Bluesky'>
-              <FontAwesomeIcon icon={faBluesky} className='text-text_color' />
+            <Link
+              href='https://bsky.app/profile/yourprofile'
+              className='text-xl hover:text-blue-500'
+              aria-label='Bluesky'>
+              <FontAwesomeIcon icon={faBluesky} className='text-primarytext' />
             </Link>
-            <Link href='#TikTok' className='text-xl hover:text-blue-500' aria-label='TikTok'>
-              <FontAwesomeIcon icon={faTiktok} className='text-text_color' />
+            <Link
+              href='https://www.tiktok.com/@yourprofile'
+              className='text-xl hover:text-blue-500'
+              aria-label='TikTok'>
+              <FontAwesomeIcon icon={faTiktok} className='text-primarytext' />
             </Link>
-          </div>
+          </div> */}
 
           <div className='block lg:hidden'>
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className='text-xl' aria-label='Menu'>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className='text-3xl font-bold text-primaryText'
+              aria-label='Menu'>
               {isMenuOpen ? '✖' : '☰'}
             </button>
           </div>
@@ -71,7 +86,7 @@ const Navbar = ({ toggleContent }) => {
               <li>
                 <button
                   onClick={() => toggleContent('main')}
-                  className='font-semibold hover:text-text_color pl-2'
+                  className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                   aria-label='Home'>
                   Home
                 </button>
@@ -79,7 +94,7 @@ const Navbar = ({ toggleContent }) => {
               <li>
                 <button
                   onClick={() => toggleContent('about')}
-                  className='font-semibold hover:text-text_color pl-2'
+                  className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                   aria-label='About'>
                   About
                 </button>
@@ -87,7 +102,7 @@ const Navbar = ({ toggleContent }) => {
               <li>
                 <button
                   onClick={() => toggleContent('contact')}
-                  className='font-semibold hover:text-text_color pl-2'
+                  className='font-semibold text-primaryText hover:text-secondaryText pl-2'
                   aria-label='Contact'>
                   Contact
                 </button>
