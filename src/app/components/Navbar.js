@@ -38,15 +38,26 @@ const Navbar = ({ toggleContent }) => {
           <div className='block lg:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='text-3xl font-bold text-primaryText'
+              className={`relative w-6 h-6 flex flex-col justify-between items-center ${isMenuOpen ? 'open' : ''}`}
               aria-label='Menu'>
-              {isMenuOpen ? '✖' : '☰'}
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}></div>
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-opacity duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+                }`}></div>
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}></div>
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className='lg:hidden'>
+          <div className='lg:hidden mt-6'>
             <ul className='space-y-4'>
               <li>
                 <button
