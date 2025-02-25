@@ -6,7 +6,7 @@ const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className='pt-14'>
+    <div className='pt-10'>
       <nav className='fixed top-0 left-0 w-full bg-black-800 z-50 py-4'>
         <div className='flex justify-between items-center px-6'>
           <ul className='hidden lg:flex gap-6 text-lg'>

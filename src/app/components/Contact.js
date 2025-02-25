@@ -2,26 +2,28 @@ import Image from 'next/image';
 
 const Contact = () => {
   return (
-    <div className='flex flex-col items-center justify-center pt-12'>
-      <div className='mx-auto my-8 p-4 max-w-4xl text-center'>
-        <h3 className='text-2xl font-bold mb-1'>Contact Us</h3>
-        <p className='mb-1'>
-          Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
-        </p>
-        <a href='mailto:joey@withthepixies.com' className='text-blue-500 hover:underline' aria-label='Email us'>
-          Email us!
-        </a>
-        <div className='flex justify-center my-8'>
+    <div className='flex flex-col items-center justify-start pt-2'>
+      <div className='w-full sm:w-1/2 mx-auto my-4 p-4 text-center'>
+        <div className='flex justify-center my-4'>
           <Image
-            src='/pixie_logo.png'
+            src='/contact.svg'
             alt='Pixie logo'
-            width={200}
-            height={167}
+            width={600}
+            height={400}
             priority
-            className='p-4'
-            aria-label='Pixie logo'
+            className='p-2'
+            aria-label='Contact Us'
           />
         </div>
+        <p className='mb-1 text-ce'>
+          Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
+        </p>
+        <a
+          href='mailto:joey@withthepixies.com'
+          className='text-primaryText font-extrabold hover:underline'
+          aria-label='Email us'>
+          Email us!
+        </a>
       </div>
     </div>
   );

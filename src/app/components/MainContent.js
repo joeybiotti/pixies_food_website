@@ -4,8 +4,8 @@ const MainContent = () => {
   return (
     <main className='flex flex-col gap-8 items-center justify-start'>
       <Image
-        className='dark'
-        src='/pixie_logo.png'
+        // className='dark'
+        src='/main_logo.svg'
         alt='Pixie logo'
         width={600}
         height={550}
