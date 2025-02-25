@@ -1,16 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faSquareFacebook, faBluesky, faTiktok } from '@fortawesome/free-brands-svg-icons';
 
 const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className='pt-14'>
+    <div className='pt-10'>
       <nav className='fixed top-0 left-0 w-full bg-black-800 z-50 py-4'>
         <div className='flex justify-between items-center px-6'>
           <ul className='hidden lg:flex gap-6 text-lg'>
@@ -39,49 +35,29 @@ const Navbar = ({ toggleContent }) => {
               </button>
             </li>
           </ul>
-
-          {/* <div className='hidden lg:flex gap-6'>
-            <Link href='mailto:your-email@example.com' className='text-xl hover:text-blue-500' aria-label='Email'>
-              <FontAwesomeIcon icon={faEnvelope} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.instagram.com/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Instagram'>
-              <FontAwesomeIcon icon={faInstagram} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.facebook.com/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Facebook'>
-              <FontAwesomeIcon icon={faSquareFacebook} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://bsky.app/profile/yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='Bluesky'>
-              <FontAwesomeIcon icon={faBluesky} className='text-primarytext' />
-            </Link>
-            <Link
-              href='https://www.tiktok.com/@yourprofile'
-              className='text-xl hover:text-blue-500'
-              aria-label='TikTok'>
-              <FontAwesomeIcon icon={faTiktok} className='text-primarytext' />
-            </Link>
-          </div> */}
-
           <div className='block lg:hidden'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='text-3xl font-bold text-primaryText'
+              className={`relative w-6 h-6 flex flex-col justify-between items-center ${isMenuOpen ? 'open' : ''}`}
               aria-label='Menu'>
-              {isMenuOpen ? '✖' : '☰'}
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
+                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}></div>
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-opacity duration-300 ${
+                  isMenuOpen ? 'opacity-0' : ''
+                }`}></div>
+              <div
+                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
+                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}></div>
             </button>
           </div>
         </div>
 
         {isMenuOpen && (
-          <div className='lg:hidden'>
+          <div className='lg:hidden mt-6'>
             <ul className='space-y-4'>
               <li>
                 <button
