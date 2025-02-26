@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import MainContent from './components/MainContent';
 import About from './components/About';
 import Contact from './components/Contact';
+import Menu from './components/Menu';
 import Footer from './components/Footer';
 
 export default function Home() {
@@ -22,6 +23,8 @@ export default function Home() {
         return <About />;
       case 'contact':
         return <Contact />;
+      case 'menu':
+        return <Menu />;
       default:
         return null; // or a default component
     }
