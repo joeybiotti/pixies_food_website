@@ -6,13 +6,13 @@ import MainContent from './components/MainContent';
 import About from './components/About';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
+import Catering from './components/Catering';
 import Footer from './components/Footer';
 
 export default function Home() {
-  const [showMainContent, setShowMainContent] = useState('main'); // state to toggle between components
-
+  const [showMainContent, setShowMainContent] = useState('main');
   const toggleContent = (content) => {
-    setShowMainContent(content); // switch to the specified content directly
+    setShowMainContent(content);
   };
 
   const renderContent = () => {
@@ -25,20 +25,17 @@ export default function Home() {
         return <Contact />;
       case 'menu':
         return <Menu />;
+      case 'catering':
+        return <Catering />;
       default:
-        return null; // or a default component
+        return <MainContent />;
     }
   };
 
   return (
     <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16 font-[family-name:var(--font-geist-sans)]'>
-      {/* Pass toggleContent as a prop to Navbar */}
       <Navbar toggleContent={toggleContent} />
-
-      {/* Conditionally render MainContent, About, or Contact */}
       <div className='flex-grow'>{renderContent()}</div>
-
-      {/* Footer */}
       <Footer />
     </div>
   );

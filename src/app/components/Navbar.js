@@ -37,7 +37,7 @@ const Navbar = ({ toggleContent }) => {
   }, []);
 
   return (
-    <div className='pt-10'>
+    <div className='pt-5'>
       <nav
         className={`fixed top-0 left-0 w-full bg-black-800 z-50 py-4 transition-all duration-300 ease-in-out ${
           isScrolled ? 'backdrop-blur-sm' : ''
@@ -62,18 +62,26 @@ const Navbar = ({ toggleContent }) => {
             </li>
             <li>
               <button
-                onClick={() => toggleContent('contact')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Contact'>
-                Contact
-              </button>
-            </li>
-            <li>
-              <button
                 onClick={() => toggleContent('menu')}
                 className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
                 aria-label='Our Menu'>
                 Our Menu
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => toggleContent('catering')}
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
+                aria-label='Catering'>
+                Catering
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => toggleContent('contact')}
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
+                aria-label='Contact'>
+                Contact
               </button>
             </li>
           </ul>
@@ -123,18 +131,26 @@ const Navbar = ({ toggleContent }) => {
             </li>
             <li>
               <button
-                onClick={() => toggleContent('contact')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Contact'>
-                Contact
-              </button>
-            </li>
-            <li>
-              <button
                 onClick={() => toggleContent('menu')}
                 className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
                 aria-label='Our Menu'>
                 Our Menu
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => toggleContent('catering')}
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
+                aria-label='Catering'>
+                Catering
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => toggleContent('contact')}
+                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
+                aria-label='Contact'>
+                Contact
               </button>
             </li>
           </ul>
