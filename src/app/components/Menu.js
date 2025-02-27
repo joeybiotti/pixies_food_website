@@ -10,13 +10,13 @@ const Menu = () => {
   return (
     <div>
       <div className='flex flex-col items-center justify-start pt-2'>
-        <div className='w-full sm:w-1/2 mx-auto my-4 p-4 text-center'>
-          <div className='flex justify-center my-4'>
+        <div className='w-full sm:w-1/2 mx-auto my-2 p-2 text-center'>
+          <div className='flex justify-center mb-2'>
             <Image
-              src='/our_menu.svg'
+              src='/ourmenu.svg'
               alt='Our Menu logo'
-              width={600}
-              height={400}
+              width={800}
+              height={100}
               priority
               className='p-2'
               aria-label='Contact Us'
@@ -46,7 +46,7 @@ const Menu = () => {
           <div className='fixed inset-0 flex items-center justify-center z-50'>
             <div className='bg-white p-4 w-4/5 h-4/5 max-w-5xl max-h-5xl relative'>
               <button
-                className='absolute top-2 right-2 text-2xl text-white bg-black p-2 rounded-full'
+                className='absolute top-2 right-2 text-2xl text-black bg-primaryText p-2 rounded-full'
                 onClick={closeModal}
                 aria-label='Close Modal'>
                 &times;
@@ -58,7 +58,7 @@ const Menu = () => {
                     src='/Menu.png'
                     alt='Menu'
                     width={1000}
-                    height={800}
+                    height={1000}
                     priority
                     className='object-contain'
                     aria-label='Menu'
