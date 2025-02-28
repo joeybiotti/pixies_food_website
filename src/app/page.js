@@ -10,6 +10,7 @@ import Menu from './components/Menu';
 import Catering from './components/Catering';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export default function Home() {
   const [showMainContent, setShowMainContent] = useState('main');
@@ -55,6 +56,7 @@ export default function Home() {
         <div className='flex-grow'>{renderContent()}</div>
       </body>
       <Analytics />
+      <SpeedInsights />
       <Footer />
     </div>
   );
