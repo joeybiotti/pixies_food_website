@@ -9,6 +9,7 @@ import Contact from './components/Contact';
 import Menu from './components/Menu';
 import Catering from './components/Catering';
 import Footer from './components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function Home() {
   const [showMainContent, setShowMainContent] = useState('main');
@@ -50,7 +51,10 @@ export default function Home() {
         <meta name='twitter:image' content='/main_logo.svg' />
       </Head>
       <Navbar toggleContent={toggleContent} />
-      <div className='flex-grow'>{renderContent()}</div>
+      <body>
+        <div className='flex-grow'>{renderContent()}</div>
+      </body>
+      <Analytics />
       <Footer />
     </div>
   );
