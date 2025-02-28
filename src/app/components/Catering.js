@@ -16,15 +16,18 @@ const Catering = () => {
           />
         </div>
         <div className='flex justify-center'>
-          <Image
-            src='/catering_announcement.svg'
-            alt='Catering Announcement'
-            width={1200}
-            height={300}
-            priority
-            className='p-5 w-full h-auto'
-            aria-label='Catering Announcement'
-          />
+          <picture>
+            <source media='(max-width: 768px)' srcSet='/catering_mobile.svg' />
+            <Image
+              src='/catering_announcement.svg'
+              alt='Catering Announcement'
+              width={1200}
+              height={300}
+              priority
+              className='p-5 w-full h-auto'
+              aria-label='Catering Announcement'
+            />
+          </picture>
         </div>
       </div>
     </div>
