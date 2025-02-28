@@ -18,21 +18,21 @@ const Footer = () => {
             aria-label='Instagram'>
             <FontAwesomeIcon icon={faInstagram} className='text-primaryText' />
           </Link>
-          <Link
+          {/* <Link
             href='https://www.facebook.com/yourprofile'
             className='text-lg hover:text-blue-500'
             aria-label='Facebook'>
             <FontAwesomeIcon icon={faSquareFacebook} className='text-primaryText' />
-          </Link>
+          </Link> */}
           <Link
             href='https://bsky.app/profile/yourprofile'
             className='text-lg hover:text-blue-500'
             aria-label='Bluesky'>
             <FontAwesomeIcon icon={faBluesky} className='text-primaryText' />
           </Link>
-          <Link href='https://www.tiktok.com/@yourprofile' className='text-lg hover:text-blue-500' aria-label='TikTok'>
+          {/* <Link href='https://www.tiktok.com/@yourprofile' className='text-lg hover:text-blue-500' aria-label='TikTok'>
             <FontAwesomeIcon icon={faTiktok} className='text-primaryText' />
-          </Link>
+          </Link> */}
         </div>
       </div>
     </footer>
