@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Head from 'next/head';
 
 const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -61,6 +62,10 @@ const Navbar = ({ toggleContent }) => {
 
   return (
     <div className='pt-5'>
+      <Head>
+        <title>Pixie Food Company - Navbar</title>
+        <meta name='description' content='Pixie Food Company - Navbar' />
+      </Head>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
           isScrolled ? 'py-2' : 'py-4'
