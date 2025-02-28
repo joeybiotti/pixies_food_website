@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +7,10 @@ import { faInstagram, faSquareFacebook, faBluesky, faTiktok } from '@fortawesome
 const Footer = () => {
   return (
     <footer className='bg-black-800 text-white py-4'>
+      <Head>
+        <title>Pixie Food Company - Footer</title>
+        <meta name='description' content='Pixie Food Company - Footer' />
+      </Head>
       <div className='flex flex-col items-center'>
         <p className='text-xs mb-2'>&copy; {new Date().getFullYear()} Pixie Food Company. All rights reserved.</p>
         <div className='flex gap-4'>

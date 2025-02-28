@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 
 const Menu = () => {
@@ -9,6 +10,10 @@ const Menu = () => {
 
   return (
     <div>
+      <Head>
+        <title>Pixie Food Company - Menu</title>
+        <meta name='description' content='Pixie Food Company - Menu' />
+      </Head>
       <div className='flex flex-col items-center justify-start pt-2'>
         <div className='w-full sm:w-1/2 mx-auto my-2 p-2 text-center'>
           <div className='flex justify-center mb-2'>
