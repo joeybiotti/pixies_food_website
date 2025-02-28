@@ -1,12 +1,14 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Function to check if the user has scrolled past the navbar
+  const menuButtonRef = useRef(null);
+  const menuRef = useRef(null);
+
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setIsScrolled(true);
@@ -15,82 +17,73 @@ const Navbar = ({ toggleContent }) => {
     }
   };
 
-  // Close the menu when clicking outside the navbar
+  const debounce = (func, delay) => {
+    let timeout;
+    return (...args) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const handleScrollDebounced = debounce(handleScroll, 200);
+
   const handleClickOutside = (event) => {
-    const menuButton = document.querySelector('.menu-button');
-    const menu = document.querySelector('.menu');
-    if (menuButton && !menuButton.contains(event.target) && menu && !menu.contains(event.target)) {
+    if (
+      menuButtonRef.current &&
+      !menuButtonRef.current.contains(event.target) &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target)
+    ) {
       setIsMenuOpen(false);
     }
   };
 
-  // Listen for scroll and click events
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScrollDebounced);
     document.addEventListener('click', handleClickOutside);
 
-    // Cleanup event listeners on component unmount
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollDebounced);
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
+  const menuItems = [
+    { label: 'Home', value: 'main' },
+    { label: 'About', value: 'about' },
+    { label: 'Our Menu', value: 'menu' },
+    { label: 'Catering', value: 'catering' },
+    { label: 'Contact', value: 'contact' },
+  ];
+
+  const buttonStyle =
+    'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline';
+
   return (
     <div className='pt-5'>
       <nav
-        className={`fixed top-0 left-0 w-full bg-black-800 z-50 py-4 transition-all duration-300 ease-in-out ${
-          isScrolled ? 'backdrop-blur-sm' : ''
-        }`}>
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
+          isScrolled ? 'py-2' : 'py-4'
+        } ${isScrolled ? 'backdrop-blur-sm' : ''}`}>
         <div className='flex justify-between items-center px-6'>
-          <ul className='hidden lg:flex gap-6 text-xl'>
-            <li>
-              <button
-                onClick={() => toggleContent('main')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Home'>
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('about')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='About'>
-                About
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('menu')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Our Menu'>
-                Our Menu
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('catering')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Catering'>
-                Catering
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('contact')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Contact'>
-                Contact
-              </button>
-            </li>
+          <ul className='hidden lg:flex gap-4 text-xl'>
+            {menuItems.map((item) => (
+              <li key={item.value}>
+                <button onClick={() => toggleContent(item.value)} className={buttonStyle} aria-label={item.label}>
+                  {item.label}
+                </button>
+              </li>
+            ))}
           </ul>
+
           <div className='block lg:hidden'>
             <button
+              ref={menuButtonRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`relative w-6 h-6 flex flex-col justify-between items-center menu-button ${
                 isMenuOpen ? 'open' : ''
               }`}
+              aria-expanded={isMenuOpen ? 'true' : 'false'}
               aria-label='Menu'>
               <div
                 className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
@@ -109,50 +102,18 @@ const Navbar = ({ toggleContent }) => {
         </div>
 
         <div
-          className={`lg:hidden mt-6 bg-gray-800 w-1/4 overflow-hidden transition-all duration-500 ease-in-out menu ${
+          ref={menuRef}
+          className={`lg:hidden mt-6 bg-gray-800 w-full overflow-hidden transition-all duration-500 ease-in-out menu ${
             isMenuOpen ? 'h-screen opacity-100' : 'h-0 opacity-0'
           }`}>
           <ul className='space-y-4'>
-            <li>
-              <button
-                onClick={() => toggleContent('main')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Home'>
-                Home
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('about')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='About'>
-                About
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('menu')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Our Menu'>
-                Our Menu
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('catering')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Catering'>
-                Catering
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => toggleContent('contact')}
-                className='font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline'
-                aria-label='Contact'>
-                Contact
-              </button>
-            </li>
+            {menuItems.map((item) => (
+              <li key={item.value}>
+                <button onClick={() => toggleContent(item.value)} className={buttonStyle} aria-label={item.label}>
+                  {item.label}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
       </nav>
