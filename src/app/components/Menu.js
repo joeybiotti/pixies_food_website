@@ -26,7 +26,7 @@ const Menu = () => {
           <div className='cursor-pointer' onClick={openModal}>
             <div className='w-full overflow-x-auto max-w-full'>
               <Image
-                src='/Menu.png'
+                src='/Menu_Feb2025.svg'
                 alt='Menu'
                 width={1000}
                 height={800}
@@ -44,7 +44,7 @@ const Menu = () => {
           <div className='fixed inset-0 bg-black bg-opacity-50 z-40' onClick={closeModal}></div>
 
           <div className='fixed inset-0 flex items-center justify-center z-50'>
-            <div className='bg-white p-4 w-4/5 h-4/5 max-w-5xl max-h-5xl relative'>
+            <div className='bg-white p-4 w-5/6 h-5/6 max-w-5xl max-h-5xl relative' onClick={(e) => e.stopPropagation()}>
               <button
                 className='absolute top-2 right-2 text-2xl text-black bg-primaryText p-2 rounded-full'
                 onClick={closeModal}
@@ -55,7 +55,7 @@ const Menu = () => {
               <div className='w-full h-full flex justify-center items-center'>
                 <div className='w-full h-full overflow-y-scroll max-h-full'>
                   <Image
-                    src='/Menu.png'
+                    src='/Menu_Feb2025.svg'
                     alt='Menu'
                     width={1000}
                     height={1000}
