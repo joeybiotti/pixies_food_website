@@ -12,7 +12,7 @@ const MainContent = () => {
         priority
         aria-label='Pixie logo'
       />
-      <p className='text-sm text-center'>Vegan Treats & Sweets</p>
+      <p className='text-lg font-bold text-center text-primaryText'>Vegan Treats & Sweets</p>
     </main>
   );
 };
