@@ -46,29 +46,40 @@ const Menu = () => {
 
       {isModalOpen && (
         <div className='lg:block'>
-          <div className='fixed inset-0 bg-black bg-opacity-50 z-40' onClick={closeModal}></div>
+          <div
+            className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-40 animate-fadeIn'
+            onClick={closeModal}></div>
 
           <div className='fixed inset-0 flex items-center justify-center z-50'>
-            <div className='bg-white p-4 w-5/6 h-5/6 max-w-5xl max-h-5xl relative' onClick={(e) => e.stopPropagation()}>
+            <div
+              className='bg-gray-500 p-4 w-full max-w-7xl h-4/5 relative rounded-md shadow-lg animate-zoomIn'
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                overflow: 'hidden',
+              }}>
+              {/* Close button on top */}
               <button
-                className='absolute top-2 right-2 text-2xl text-black bg-primaryText p-2 rounded-full'
+                className='absolute top-4 right-4 text-3xl text-black bg-primaryText p-3 rounded-full z-50 hover:text-white transition-colors duration-300'
                 onClick={closeModal}
                 aria-label='Close Modal'>
                 &times;
               </button>
 
-              <div className='w-full h-full flex justify-center items-center'>
-                <div className='w-full h-full overflow-y-scroll max-h-full'>
-                  <Image
-                    src='/Menu_Feb2025.svg'
-                    alt='Menu'
-                    width={1000}
-                    height={1000}
-                    priority
-                    className='object-contain'
-                    aria-label='Menu'
-                  />
-                </div>
+              {/* Image container, ensure image fits */}
+              <div className='w-full h-full overflow-auto'>
+                <Image
+                  src='/Menu_Feb2025.svg'
+                  alt='Menu'
+                  width={1200} // Increased width
+                  height={1000} // Increased height
+                  priority
+                  className='object-contain w-full rounded-lg'
+                  style={{
+                    transform: 'scale(1.15)', // Slight zoom
+                    transition: 'transform 0.3s ease-in-out',
+                  }}
+                  aria-label='Menu'
+                />
               </div>
             </div>
           </div>

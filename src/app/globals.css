@@ -21,3 +21,31 @@ body {
   background: var(--background);
   font-family: 'Gothic A1', Arial, Helvetica, sans-serif; /* Apply the Google Font */
 }
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 0.3s ease-in-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
