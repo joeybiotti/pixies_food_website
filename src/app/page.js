@@ -52,9 +52,7 @@ export default function Home() {
         <meta name='twitter:image' content='/main_logo.svg' />
       </Head>
       <Navbar toggleContent={toggleContent} />
-      <body>
-        <div className='flex-grow'>{renderContent()}</div>
-      </body>
+      <div className='flex-grow'>{renderContent()}</div>
       <Analytics />
       <SpeedInsights />
       <Footer />
