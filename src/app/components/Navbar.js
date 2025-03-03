@@ -35,7 +35,7 @@ const Navbar = ({ toggleContent }) => {
       menuRef.current &&
       !menuRef.current.contains(event.target)
     ) {
-      setIsMenuOpen(false); // Close the menu if clicked outside
+      setIsMenuOpen(false);
     }
   };
 
@@ -61,7 +61,7 @@ const Navbar = ({ toggleContent }) => {
     { label: 'Contact', value: 'contact' },
   ];
 
-  const buttonStyle = 'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none'; // Removed text-shadow-outline
+  const buttonStyle = 'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none';
 
   return (
     <div className='pt-5'>
@@ -80,7 +80,7 @@ const Navbar = ({ toggleContent }) => {
                 <button
                   onClick={() => {
                     toggleContent(item.value);
-                    handleLinkClick(); // Close the menu when a link is clicked
+                    handleLinkClick();
                   }}
                   className={buttonStyle}
                   aria-label={item.label}>
@@ -94,39 +94,33 @@ const Navbar = ({ toggleContent }) => {
             <button
               ref={menuButtonRef}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`relative w-6 h-6 flex flex-col justify-between items-center menu-button ${
-                isMenuOpen ? 'open' : ''
+              className={`relative w-6 h-6 flex justify-center items-center text-3xl font-bold text-primaryText transition-all duration-300 ease-in-out ${
+                isMenuOpen ? 'rotate-45 scale-125' : 'scale-100'
               }`}
               aria-expanded={isMenuOpen ? 'true' : 'false'}
               aria-label='Menu'>
-              <div
-                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
-                  isMenuOpen ? 'rotate-45 translate-y-2' : ''
-                }`}></div>
-              <div
-                className={`w-full h-0.5 bg-primaryText transition-opacity duration-300 ${
-                  isMenuOpen ? 'opacity-0' : ''
-                }`}></div>
-              <div
-                className={`w-full h-0.5 bg-primaryText transition-transform duration-300 ${
-                  isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-                }`}></div>
+              <span
+                className={`transition-transform duration-300 ease-in-out ${
+                  isMenuOpen ? 'rotate-45 scale-125' : 'scale-100'
+                }`}>
+                ★
+              </span>
             </button>
           </div>
         </div>
 
         <div
           ref={menuRef}
-          className={`lg:hidden mt-6 bg-gray-800 w-[35%] h-screen overflow-hidden transition-all duration-500 ease-in-out menu ${
+          className={`lg:hidden mt-6 w-[35%] h-screen overflow-hidden transition-all duration-500 ease-in-out menu ${
             isMenuOpen ? 'opacity-100' : 'h-0 opacity-0'
-          }`}>
+          } bg-background`}>
           <ul className='space-y-4'>
             {menuItems.map((item) => (
               <li key={item.value} className='border-b-2 border-primaryText'>
                 <button
                   onClick={() => {
                     toggleContent(item.value);
-                    handleLinkClick(); // Close the menu when a link is clicked
+                    handleLinkClick();
                   }}
                   className={buttonStyle}
                   aria-label={item.label}>
