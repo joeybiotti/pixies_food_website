@@ -12,23 +12,33 @@ import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
+// Constants for content types
+const CONTENTS = {
+  MAIN: 'main',
+  ABOUT: 'about',
+  CONTACT: 'contact',
+  MENU: 'menu',
+  CATERING: 'catering',
+};
+
 export default function Home() {
-  const [showMainContent, setShowMainContent] = useState('main');
+  const [showMainContent, setShowMainContent] = useState(CONTENTS.MAIN);
+
   const toggleContent = (content) => {
     setShowMainContent(content);
   };
 
   const renderContent = () => {
     switch (showMainContent) {
-      case 'main':
+      case CONTENTS.MAIN:
         return <MainContent />;
-      case 'about':
+      case CONTENTS.ABOUT:
         return <About />;
-      case 'contact':
+      case CONTENTS.CONTACT:
         return <Contact />;
-      case 'menu':
+      case CONTENTS.MENU:
         return <Menu />;
-      case 'catering':
+      case CONTENTS.CATERING:
         return <Catering />;
       default:
         return <MainContent />;
@@ -36,7 +46,7 @@ export default function Home() {
   };
 
   return (
-    <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16 font-[family-name:var(--font-geist-sans)]'>
+    <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16' style={{ fontFamily: 'Gothic A1, sans-serif' }}>
       <Head>
         <title>Pixie Food Company</title>
         <meta name='description' content='Pixie Food Company - Vegan Treats & Sweets' />
@@ -50,14 +60,18 @@ export default function Home() {
         <meta name='twitter:title' content='Pixie Food Company' />
         <meta name='twitter:description' content='Pixie Food Company - Vegan Treats & Sweets' />
         <meta name='twitter:image' content='/main_logo.svg' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <Navbar toggleContent={toggleContent} />
-      <body>
-        <div className='flex-grow'>{renderContent()}</div>
-      </body>
-      <Analytics />
-      <SpeedInsights />
-      <Footer />
+      <div className='flex-grow'>{renderContent()}</div>
+      {/* Only render Analytics and SpeedInsights in production */}
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <Analytics />
+          <SpeedInsights />
+        </>
+      )}
+      <Footer className='mt-auto' />
     </div>
   );
 }
