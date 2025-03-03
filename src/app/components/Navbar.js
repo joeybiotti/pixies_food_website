@@ -57,8 +57,7 @@ const Navbar = ({ toggleContent }) => {
     { label: 'Contact', value: 'contact' },
   ];
 
-  const buttonStyle =
-    'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none text-shadow-outline';
+  const buttonStyle = 'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none'; // Removed text-shadow-outline
 
   return (
     <div className='pt-5'>
