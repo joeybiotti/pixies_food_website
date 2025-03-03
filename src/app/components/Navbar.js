@@ -35,8 +35,12 @@ const Navbar = ({ toggleContent }) => {
       menuRef.current &&
       !menuRef.current.contains(event.target)
     ) {
-      setIsMenuOpen(false);
+      setIsMenuOpen(false); // Close the menu if clicked outside
     }
+  };
+
+  const handleLinkClick = () => {
+    setIsMenuOpen(false); // Close the menu when a link is clicked
   };
 
   useEffect(() => {
@@ -73,7 +77,13 @@ const Navbar = ({ toggleContent }) => {
           <ul className='hidden lg:flex gap-4 text-xl'>
             {menuItems.map((item) => (
               <li key={item.value}>
-                <button onClick={() => toggleContent(item.value)} className={buttonStyle} aria-label={item.label}>
+                <button
+                  onClick={() => {
+                    toggleContent(item.value);
+                    handleLinkClick(); // Close the menu when a link is clicked
+                  }}
+                  className={buttonStyle}
+                  aria-label={item.label}>
                   {item.label}
                 </button>
               </li>
@@ -107,13 +117,19 @@ const Navbar = ({ toggleContent }) => {
 
         <div
           ref={menuRef}
-          className={`lg:hidden mt-6 bg-gray-800 w-full overflow-hidden transition-all duration-500 ease-in-out menu ${
-            isMenuOpen ? 'h-screen opacity-100' : 'h-0 opacity-0'
+          className={`lg:hidden mt-6 bg-gray-800 w-[35%] h-screen overflow-hidden transition-all duration-500 ease-in-out menu ${
+            isMenuOpen ? 'opacity-100' : 'h-0 opacity-0'
           }`}>
           <ul className='space-y-4'>
             {menuItems.map((item) => (
-              <li key={item.value}>
-                <button onClick={() => toggleContent(item.value)} className={buttonStyle} aria-label={item.label}>
+              <li key={item.value} className='border-b-2 border-primaryText'>
+                <button
+                  onClick={() => {
+                    toggleContent(item.value);
+                    handleLinkClick(); // Close the menu when a link is clicked
+                  }}
+                  className={buttonStyle}
+                  aria-label={item.label}>
                   {item.label}
                 </button>
               </li>
