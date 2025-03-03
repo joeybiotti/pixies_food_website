@@ -15,7 +15,7 @@ const Menu = () => {
         <meta name='description' content='Pixie Food Company - Menu' />
       </Head>
       <div className='flex flex-col items-center justify-start pt-2'>
-        <div className='w-full sm:w-1/2 mx-auto my-2 p-2 text-center'>
+        <div className='w-full sm:w-3/4 md:w-1/2 mx-auto my-2 p-2 text-center'>
           <div className='flex justify-center mb-2'>
             <Image
               src='/ourmenu.svg'
@@ -36,7 +36,7 @@ const Menu = () => {
                 width={1000}
                 height={800}
                 priority
-                className='object-contain'
+                className='object-contain w-full h-auto'
                 aria-label='Menu'
               />
             </div>
@@ -46,29 +46,38 @@ const Menu = () => {
 
       {isModalOpen && (
         <div className='lg:block'>
-          <div className='fixed inset-0 bg-black bg-opacity-50 z-40' onClick={closeModal}></div>
+          <div
+            className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50 animate-fadeIn'
+            onClick={closeModal}></div>
 
           <div className='fixed inset-0 flex items-center justify-center z-50'>
-            <div className='bg-white p-4 w-5/6 h-5/6 max-w-5xl max-h-5xl relative' onClick={(e) => e.stopPropagation()}>
+            <div
+              className='bg-gray-500 p-4 w-full max-w-7xl h-4/5 relative rounded-md shadow-lg animate-zoomIn'
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                overflow: 'hidden',
+              }}>
               <button
-                className='absolute top-2 right-2 text-2xl text-black bg-primaryText p-2 rounded-full'
+                className='absolute top-4 right-4 text-3xl text-black bg-primaryText p-3 rounded-full z-50 hover:text-white transition-colors duration-300'
                 onClick={closeModal}
                 aria-label='Close Modal'>
                 &times;
               </button>
 
-              <div className='w-full h-full flex justify-center items-center'>
-                <div className='w-full h-full overflow-y-scroll max-h-full'>
-                  <Image
-                    src='/Menu_Feb2025.svg'
-                    alt='Menu'
-                    width={1000}
-                    height={1000}
-                    priority
-                    className='object-contain'
-                    aria-label='Menu'
-                  />
-                </div>
+              <div className='w-full h-full overflow-auto'>
+                <Image
+                  src='/Menu_Feb2025.svg'
+                  alt='Menu'
+                  width={1200}
+                  height={1000}
+                  priority
+                  className='object-contain w-full rounded-lg'
+                  style={{
+                    transform: 'scale(1.1)',
+                    transition: 'transform 0.3s ease-in-out',
+                  }}
+                  aria-label='Menu'
+                />
               </div>
             </div>
           </div>
