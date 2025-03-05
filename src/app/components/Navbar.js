@@ -111,8 +111,8 @@ const Navbar = ({ toggleContent }) => {
 
         <div
           ref={menuRef}
-          className={`lg:hidden mt-6 w-[35%] h-screen overflow-hidden transition-all duration-500 ease-in-out menu ${
-            isMenuOpen ? 'opacity-100' : 'h-0 opacity-0'
+          className={`lg:hidden mt-6 w-[35%] overflow-hidden transition-all duration-500 ease-in-out ${
+            isMenuOpen ? 'max-h-[100vh] opacity-100' : 'max-h-0 opacity-0'
           } bg-background`}>
           <ul className='space-y-4'>
             {menuItems.map((item) => (
