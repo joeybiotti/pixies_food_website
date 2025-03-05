@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Menu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,45 +45,57 @@ const Menu = () => {
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className='lg:block'>
-          <div
-            className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50 animate-fadeIn'
-            onClick={closeModal}></div>
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            key='modal-overlay'
+            className='fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm z-50'
+            onClick={closeModal}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}>
+            <motion.div
+              className='fixed inset-0 flex items-center justify-center z-50'
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}>
+              <motion.div
+                className='bg-gray-500 p-4 w-full max-w-7xl h-4/5 relative rounded-md shadow-lg'
+                onClick={(e) => e.stopPropagation()}
+                style={{ overflow: 'hidden' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}>
+                <button
+                  className='absolute top-4 right-4 text-3xl text-black bg-primaryText p-3 rounded-full z-50 hover:text-white transition-colors duration-300'
+                  onClick={closeModal}
+                  aria-label='Close Modal'>
+                  &times;
+                </button>
 
-          <div className='fixed inset-0 flex items-center justify-center z-50'>
-            <div
-              className='bg-gray-500 p-4 w-full max-w-7xl h-4/5 relative rounded-md shadow-lg animate-zoomIn'
-              onClick={(e) => e.stopPropagation()}
-              style={{
-                overflow: 'hidden',
-              }}>
-              <button
-                className='absolute top-4 right-4 text-3xl text-black bg-primaryText p-3 rounded-full z-50 hover:text-white transition-colors duration-300'
-                onClick={closeModal}
-                aria-label='Close Modal'>
-                &times;
-              </button>
-
-              <div className='w-full h-full overflow-auto'>
-                <Image
-                  src='/Menu_Feb2025.svg'
-                  alt='Menu'
-                  width={1200}
-                  height={1000}
-                  priority
-                  className='object-contain w-full rounded-lg'
-                  style={{
-                    transform: 'scale(1.1)',
-                    transition: 'transform 0.3s ease-in-out',
-                  }}
-                  aria-label='Menu'
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+                <div className='w-full h-full overflow-auto'>
+                  <Image
+                    src='/Menu_Feb2025.svg'
+                    alt='Menu'
+                    width={1200}
+                    height={1000}
+                    priority
+                    className='object-contain w-full rounded-lg'
+                    style={{
+                      transform: 'scale(1.1)',
+                      transition: 'transform 0.3s ease-in-out',
+                    }}
+                    aria-label='Menu'
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
