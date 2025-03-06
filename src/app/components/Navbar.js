@@ -3,6 +3,14 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 
+const debounce = (func, delay) => {
+  let timeout;
+  return (...args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(...args), delay);
+  };
+};
+
 const Navbar = ({ toggleContent }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,22 +19,8 @@ const Navbar = ({ toggleContent }) => {
   const menuRef = useRef(null);
 
   const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
-    }
+    setIsScrolled(window.scrollY > 0);
   };
-
-  const debounce = (func, delay) => {
-    let timeout;
-    return (...args) => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), delay);
-    };
-  };
-
-  const handleScrollDebounced = debounce(handleScroll, 200);
 
   const handleClickOutside = (event) => {
     if (
@@ -44,6 +38,7 @@ const Navbar = ({ toggleContent }) => {
   };
 
   useEffect(() => {
+    const handleScrollDebounced = debounce(handleScroll, 200);
     window.addEventListener('scroll', handleScrollDebounced);
     document.addEventListener('click', handleClickOutside);
 
@@ -71,8 +66,8 @@ const Navbar = ({ toggleContent }) => {
       </Head>
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ease-in-out ${
-          isScrolled ? 'py-2' : 'py-4'
-        } ${isScrolled ? 'backdrop-blur-sm' : ''}`}>
+          isScrolled ? 'py-2 backdrop-blur-sm' : 'py-4'
+        }`}>
         <div className='flex justify-between items-center px-6'>
           <ul className='hidden lg:flex gap-4 text-xl'>
             {menuItems.map((item) => (
