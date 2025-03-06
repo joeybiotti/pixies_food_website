@@ -17,16 +17,16 @@ const Contact = () => {
             height={100}
             priority
             className='p-5'
-            aria-label='Conctact Us'
+            aria-label='Contact Us'
           />
         </div>
-        <p className='mt-5 mb-2 text-ce'>
+        <p className='mt-5 mb-2 text-center'>
           Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
         </p>
         <a
           href='mailto:joey@withthepixies.com'
           className='text-primaryText font-extrabold hover:underline'
-          aria-label='Email!'>
+          aria-label='Email'>
           Shoot us an Email!
         </a>
       </div>
