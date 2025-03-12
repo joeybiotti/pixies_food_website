@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const next = require('next');
 const nodemailer = require('nodemailer');
@@ -15,17 +17,25 @@ app.prepare().then(() => {
   server.post('/api/send-email', async (req, res) => {
     const { email, message } = req.body;
 
+    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS);
+
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      tls: {
+        ciphers: 'SSLv3',
+      },
+      debug: true,
     });
 
     const mailOptions = {
       from: email,
-      to: 'joey@withthepixies.com',
+      to: 'pixiefoodco@gmail.com',
       subject: 'New Message from Contact Form',
       text: `Message: ${message}\n\nFrom: ${email}`,
     };
