@@ -10,6 +10,13 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const honeypot = e.target.honeypot.value;
+
+    if (honeypot) {
+      setStatus('Bot detected.');
+      return;
+    }
+
     try {
       const response = await fetch('/api/send-email', {
         method: 'POST',
@@ -90,6 +97,18 @@ const Contact = () => {
               className='w-full p-2 border border-gray-300 rounded-md text-black'
               rows='5'
               placeholder='Your Message'
+            />
+          </div>
+          <div className='hidden'>
+            <label htmlFor='honeypot' className='block text-left font-semibold'>
+              Leave this field empty:
+            </label>
+            <input
+              type='text'
+              id='honeypot'
+              name='honeypot'
+              className='w-full p-2 border border-gray-300 rounded-md text-black'
+              placeholder='Leave this field empty'
             />
           </div>
           <button type='submit' className='w-full p-2 bg-primaryText text-white rounded-md hover:bg-primaryText/80'>

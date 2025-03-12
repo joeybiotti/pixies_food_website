@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require('express');
 const next = require('next');
 const nodemailer = require('nodemailer');
@@ -15,9 +14,11 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
 
   server.post('/api/send-email', async (req, res) => {
-    const { email, message } = req.body;
+    const { email, message, honeypot } = req.body;
 
-    console.log(process.env.EMAIL_USER, process.env.EMAIL_PASS);
+    if (honeypot) {
+      return res.status(400).json({ success: false, message: 'Bot detected' });
+    }
 
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
