@@ -4,7 +4,7 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req) {
   try {
-    const { email, message, honeypot } = await req.json();
+    const { email, message, name, phone, honeypot } = await req.json();
 
     if (honeypot) {
       return NextResponse.json({ success: false, message: 'Bot detected' }, { status: 400 });
@@ -22,10 +22,17 @@ export async function POST(req) {
       from: email,
       to: process.env.RECIPIENT_EMAIL,
       subject: 'New Message from Contact Form',
-      text: `Message: ${message}\n\nFrom: ${email}`,
+      text: `
+        Message: ${message}
+        
+        From: ${email}
+        Name: ${name || 'Not Provided'}
+        Phone: ${phone || 'Not Provided'}
+      `,
     };
 
     await transporter.sendMail(mailOptions);
+
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error('Error sending email:', error);
