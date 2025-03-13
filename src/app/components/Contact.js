@@ -5,6 +5,8 @@ import { useState } from 'react';
 const Contact = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [name, setName] = useState(''); // For name
+  const [phone, setPhone] = useState(''); // For phone number
   const [status, setStatus] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -18,18 +20,20 @@ const Contact = () => {
     }
 
     try {
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('/api/send_email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, message }),
+        body: JSON.stringify({ email, message, name, phone }), // Include name and phone
       });
 
       if (response.ok) {
         setStatus('Email sent successfully!');
         setEmail('');
         setMessage('');
+        setName('');
+        setPhone('');
       } else {
         const errorData = await response.json();
         setStatus(`Error: ${errorData.message || 'Unknown error'}`);
@@ -58,17 +62,26 @@ const Contact = () => {
             aria-label='Contact Us'
           />
         </div>
-        <p className='mt-5 mb-2 text-center'>
+        <p className='mt-5 mb-2 text-center text-lg'>
           Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
         </p>
-        <a
-          href='mailto:joey@withthepixies.com'
-          className='text-primaryText font-extrabold hover:underline'
-          aria-label='Email'>
-          Shoot us an Email!
-        </a>
+        <p className='text-primaryText font-extrabold text-lg'>Shoot us an Email!</p>
 
         <form onSubmit={handleSubmit} className='mt-6 space-y-4'>
+          <div>
+            <label htmlFor='name' className='block text-left font-semibold'>
+              Your Name (Optional):
+            </label>
+            <input
+              type='text'
+              id='name'
+              name='name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className='w-full p-2 border border-gray-300 rounded-md text-black'
+              placeholder='Your Name'
+            />
+          </div>
           <div>
             <label htmlFor='email' className='block text-left font-semibold'>
               Your Email:
@@ -82,6 +95,20 @@ const Contact = () => {
               required
               className='w-full p-2 border border-gray-300 rounded-md text-black'
               placeholder='Your Email'
+            />
+          </div>
+          <div>
+            <label htmlFor='phone' className='block text-left font-semibold'>
+              Your Phone Number (Optional):
+            </label>
+            <input
+              type='text'
+              id='phone'
+              name='phone'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className='w-full p-2 border border-gray-300 rounded-md text-black'
+              placeholder='Your Phone Number'
             />
           </div>
           <div>
