@@ -49,20 +49,46 @@ export default function Home() {
   return (
     <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16' style={{ fontFamily: 'Gothic A1, sans-serif' }}>
       <Head>
-        <title>Pixie Food Company</title>
-        <meta name='description' content='Pixie Food Company - Vegan Treats & Sweets' />
-        <meta name='keywords' content='Pixie, Vegan, Treats, Sweets, Food, Company' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Pixie Food Company - Vegan Pastries in Boston</title>
+        <meta
+          name='description'
+          content='Boston’s Pixie Food Company: Delicious Vegan Treats & Sweets available at farmers markets and pop-ups.'
+        />
+        <meta
+          name='keywords'
+          content='Pixie, Vegan, Treats, Sweets, Food, Company, Boston, Vegan Pastries Boston, Farmers Market Vegan Treats'
+        />
         <meta name='author' content='Pixie Food Company' />
-        <meta property='og:title' content='Pixie Food Company' />
-        <meta property='og:description' content='Pixie Food Company - Vegan Treats & Sweets' />
-        <meta property='og:image' content='/main_logo.svg' />
+        <meta property='og:title' content='Pixie Food Company - Boston Vegan Pastries' />
+        <meta
+          property='og:description'
+          content='Handmade vegan treats and sweets from Boston’s Pixie Food Company. Catch us at local farmers markets and pop-ups!'
+        />
+        <meta property='og:image' content='https://www.withthepixies.com/images/main_logo.svg' />
         <meta property='og:url' content='https://www.withthepixies.com' />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:title' content='Pixie Food Company' />
-        <meta name='twitter:description' content='Pixie Food Company - Vegan Treats & Sweets' />
-        <meta name='twitter:image' content='/main_logo.svg' />
+        <meta name='twitter:title' content='Pixie Food Company - Boston Vegan Pastries' />
+        <meta
+          name='twitter:description'
+          content='Handmade vegan treats and sweets from Boston’s Pixie Food Company. Catch us at local farmers markets and pop-ups!'
+        />
+        <meta name='twitter:image' content='https://www.withthepixies.com/images/main_logo.svg' />
         <link rel='icon' href='/favicon.ico' />
+        <script type='application/ld+json'>
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'Pixie Food Company',
+            url: 'https://www.withthepixies.com',
+            logo: 'https://www.withthepixies.com/images/main_logo.svg',
+            sameAs: ['https://www.instagram.com/pixie.food.co/', 'https://bsky.app/profile/pixiefood.bsky.social'],
+            description:
+              'Boston’s Pixie Food Company: Delicious Vegan Treats & Sweets available at farmers markets and pop-ups.',
+          })}
+        </script>
       </Head>
+
       <Navbar toggleContent={toggleContent} />
       <div className='flex-grow'>
         <AnimatePresence mode='wait'>
