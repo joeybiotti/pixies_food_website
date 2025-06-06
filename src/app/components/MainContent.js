@@ -16,7 +16,7 @@ const MainContent = () => {
               here
             </a>{' '}
             or see our{' '}
-            <a className='underline text-white' href='/Herbstalk_menu.pdf' target='_blank' rel='noopener noreferrer'>
+            <a className='underline text-white' href='/Herbstalk menu_HC.pdf' target='_blank' rel='noopener noreferrer'>
               Special Menu
             </a>
           </p>
