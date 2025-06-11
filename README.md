@@ -1,38 +1,63 @@
-# Pixie Food Company Wesbite
+# Pixie Food Company Website
 
-Portfolio site built using Next.js
+This is a small marketing site built with **Next.js** for *Pixie Food Company*, a vegan pastry and catering company based in New England. The goal was to create a fast, responsive, and visually simple site that covers basic small business needs: branding, a menu, and a short company overview.
 
-## Getting Started
 
-First, run the development server:
+## Live Preview
+
+<a>https://www.withthepixies.com/</a>
+
+## Tech Stack
+
+| Feature        | Details                                 |
+|----------------|-----------------------------------------|
+| Framework      | [Next.js](https://nextjs.org/)          |
+| Styling        | [Tailwind CSS](https://tailwindcss.com/) with filters plugin |
+| Animations     | [Framer Motion](https://www.framer.com/motion/) |
+| Server         | Custom Express server (`server.js`)     |
+| Icons          | FontAwesome                             |
+| Analytics      | Vercel Analytics and Speed Insights     |
+
+## Features
+
+- Responsive layout with basic Tailwind styling
+- Click-to-expand menu modal using Framer Motion
+- Semantic image usage and accessible alt/aria tags
+- No CMS, database, or backend logic — just static pages and images
+- Ready to deploy on Vercel or any Node host
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev       # Start development server
+npm run build     # Create production build
+npm start         # Start Express server (uses server.js)
+npm run lint      # Lint the codebase
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Setup
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+git clone https://github.com/YOUR_USERNAME/pixie_food_company_site.git
+cd pixie_food_company_site
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Visit `http://localhost:3000` to view the site locally.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `pages/` – Main route components (About, Menu, Home)
+- `public/` – Static assets like logos and menu images
+- `server.js` – Optional Express server for custom deployment
+- `styles/` – Tailwind and PostCSS config
+- No database, auth, or state management
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+[MIT](LICENSE)
 
-## Deploy on Vercel
+## Notes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This isn't a complex site. It does what it needs to: displays branding, some info, and a menu. Built using modern tools because it's easy and fast.
