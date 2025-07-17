@@ -8,10 +8,12 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
 import Catering from './components/Catering';
+import Calendar from 'react-calendar';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnimatePresence, motion } from 'framer-motion';
+import { CALENDAR_TYPES } from 'react-calendar/dist/shared/const';
 
 // Constants for content types
 const CONTENTS = {
@@ -20,6 +22,7 @@ const CONTENTS = {
   CONTACT: 'contact',
   MENU: 'menu',
   CATERING: 'catering',
+  CALENDAR: 'calendar',
 };
 
 export default function Home() {
@@ -39,6 +42,8 @@ export default function Home() {
         return <Contact />;
       case CONTENTS.MENU:
         return <Menu />;
+      case CONTENTS.CALENDAR:
+        return <Calendar/>
       case CONTENTS.CATERING:
         return <Catering />;
       default:
