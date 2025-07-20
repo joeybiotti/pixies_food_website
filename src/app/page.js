@@ -8,12 +8,15 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
 import Catering from './components/Catering';
-import Calendar from 'react-calendar';
 import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CALENDAR_TYPES } from 'react-calendar/dist/shared/const';
+
+// FullCalendar imports
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 // Constants for content types
 const CONTENTS = {
@@ -43,7 +46,19 @@ export default function Home() {
       case CONTENTS.MENU:
         return <Menu />;
       case CONTENTS.CALENDAR:
-        return <Calendar/>
+        return (
+          <FullCalendar
+            plugins={[dayGridPlugin, interactionPlugin]}
+            initialView="dayGridMonth"
+            editable={true}
+            selectable={true}
+            events={[
+              { title: 'Herbstalk', date: '2025-08-01' },
+              { title: 'Event 2', date: '2025-08-05' },
+            ]}
+            height="95vh"
+          />
+        );
       case CONTENTS.CATERING:
         return <Catering />;
       default:
