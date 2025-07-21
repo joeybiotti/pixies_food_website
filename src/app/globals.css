@@ -1,51 +1,110 @@
+/* Import Google Font (if not already globally imported) */
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
 
+/* Tailwind base */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Theme colors */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-purple: #6b21a8; /* Tailwind purple-700 */
+  --primary-purple-light: #d8b4fe; /* purple-300 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary-purple: #a78bfa; /* purple-400 */
+    --primary-purple-light: #7c3aed; /* purple-600 */
   }
 }
 
+/* Global body */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Gothic A1', Arial, Helvetica, sans-serif; /* Apply the Google Font */
+  font-family: 'Gothic A1', Arial, Helvetica, sans-serif;
 }
 
-@keyframes zoomIn {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+/* FullCalendar container styling */
+.fc {
+  @apply max-w-full bg-white dark:bg-neutral-900 rounded-lg p-4 shadow transition-all;
+  font-family: 'Gothic A1', Arial, Helvetica, sans-serif;
+  color: var(--foreground);
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+/* Header (month, arrows) */
+.fc-toolbar-title {
+  @apply text-2xl font-bold mb-4 text-gray-900 dark:text-gray-100;
 }
 
-.animate-zoomIn {
-  animation: zoomIn 0.3s ease-in-out;
+.fc-button {
+  @apply px-3 py-1 rounded-md border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-purple-100 dark:hover:bg-purple-700 transition;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out;
+.fc-button-primary {
+  @apply bg-purple-700 text-white hover:bg-purple-800 dark:bg-purple-600 dark:hover:bg-purple-700;
+}
+
+/* Weekday headers */
+.fc-col-header-cell-cushion {
+  @apply text-xs font-semibold uppercase tracking-wide text-center text-gray-500 dark:text-gray-400;
+}
+
+/* Day cells */
+.fc-daygrid-day {
+  @apply aspect-square cursor-pointer transition-colors;
+}
+
+.fc-daygrid-day-number {
+  @apply text-sm font-medium text-gray-700 dark:text-gray-300;
+}
+
+/* Hover effect on days */
+.fc-daygrid-day:hover {
+  @apply bg-purple-100 dark:bg-purple-800;
+  border-radius: 0.5rem;
+}
+
+/* Today highlight */
+.fc-day-today {
+  background-color: var(--primary-purple-light);
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+}
+
+/* Selected day (if selectable) */
+.fc-day-selected {
+  @apply bg-purple-700 text-white rounded-lg;
+}
+
+/* Event styling */
+/* FullCalendar renders events with .fc-event */
+.fc-event {
+  @apply bg-purple-700 text-white rounded-md px-2 py-1 text-xs font-semibold cursor-pointer;
+  border: none !important;
+  box-shadow: none !important;
+  transition: background-color 0.2s;
+}
+
+.fc-event:hover {
+  background-color: var(--primary-purple-light);
+  color: var(--primary-purple);
+}
+
+/* Event titles in day cells (month view) */
+.fc-daygrid-event-dot {
+  background-color: var(--primary-purple);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .fc-toolbar-title {
+    @apply text-xl;
+  }
 }

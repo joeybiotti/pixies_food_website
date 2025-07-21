@@ -12,6 +12,12 @@ import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnimatePresence, motion } from 'framer-motion';
+import { calendarEvents } from './components/Events';
+
+// FullCalendar imports
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import interactionPlugin from '@fullcalendar/interaction';
 
 // Constants for content types
 const CONTENTS = {
@@ -20,6 +26,7 @@ const CONTENTS = {
   CONTACT: 'contact',
   MENU: 'menu',
   CATERING: 'catering',
+  CALENDAR: 'calendar',
 };
 
 export default function Home() {
@@ -39,6 +46,19 @@ export default function Home() {
         return <Contact />;
       case CONTENTS.MENU:
         return <Menu />;
+      case CONTENTS.CALENDAR:
+        return (
+          <FullCalendar
+            plugins={[dayGridPlugin, interactionPlugin]}
+            initialView='dayGridMonth'
+            editable={true}
+            selectable={true}
+            events={calendarEvents}
+            firstDay={1}
+            height='65vh'
+            width='75vh'
+          />
+        );
       case CONTENTS.CATERING:
         return <Catering />;
       default:
