@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnimatePresence, motion } from 'framer-motion';
-import { calendarEvents } from './components/events';
+import { calendarEvents } from './components/Events';
 
 // FullCalendar imports
 import FullCalendar from '@fullcalendar/react';
