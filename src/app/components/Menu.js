@@ -32,7 +32,7 @@ const Menu = () => {
           <div className='cursor-pointer' onClick={openModal}>
             <div className='w-full overflow-x-auto max-w-full'>
               <Image
-                src='/Menu_Feb2025.svg'
+                src='/seasonalmenu.png'
                 alt='Menu'
                 width={1000}
                 height={800}
@@ -78,7 +78,7 @@ const Menu = () => {
 
                 <div className='w-full h-full overflow-auto'>
                   <Image
-                    src='/Menu_Feb2025.svg'
+                    src='/seasonalmenu.png'
                     alt='Menu'
                     width={1200}
                     height={1000}

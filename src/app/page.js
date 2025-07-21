@@ -54,6 +54,7 @@ export default function Home() {
             editable={true}
             selectable={true}
             events={calendarEvents}
+            firstDay={1}
             height='65vh'
             width='75vh'
           />

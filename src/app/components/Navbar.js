@@ -54,7 +54,8 @@ const Navbar = ({ toggleContent }) => {
     { label: 'Our Menu', value: 'menu' },
     { label: 'Catering', value: 'catering' },
     { label: 'Contact', value: 'contact' },
-    { label: 'Calendar', value: 'calendar' },
+    // TODO Finish the calendar component and then re-add
+    // { label: 'Calendar', value: 'calendar' }, 
   ];
 
   const buttonStyle = 'font-semibold text-primaryText hover:text-secondaryText pl-2 focus:outline-none';
