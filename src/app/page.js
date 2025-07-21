@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { AnimatePresence, motion } from 'framer-motion';
+import { calendarEvents } from './components/events';
 
 // FullCalendar imports
 import FullCalendar from '@fullcalendar/react';
@@ -49,14 +50,12 @@ export default function Home() {
         return (
           <FullCalendar
             plugins={[dayGridPlugin, interactionPlugin]}
-            initialView="dayGridMonth"
+            initialView='dayGridMonth'
             editable={true}
             selectable={true}
-            events={[
-              { title: 'Herbstalk', date: '2025-08-01' },
-              { title: 'Event 2', date: '2025-08-05' },
-            ]}
-            height="95vh"
+            events={calendarEvents}
+            height='65vh'
+            width='75vh'
           />
         );
       case CONTENTS.CATERING:
