@@ -5,7 +5,6 @@ const MainContent = () => {
   return (
     <main className='flex flex-col gap-8 items-center justify-start'>
       <Image src='/main_logo.svg' alt='Pixie logo' width={600} height={550} priority aria-label='Pixie logo' />
-      <p className='text-lg font-bold text-center text-primaryText'>Vegan Treats & Sweets</p>
     </main>
   );
 };

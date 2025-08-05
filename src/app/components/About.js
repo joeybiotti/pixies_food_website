@@ -24,7 +24,6 @@ const About = () => {
           Pixie is all about creating magical moments for everyone! We’re a family-owned shop bringing fun, accessible,{' '}
           <span className='font-bold text-primaryText'>DELICIOUS</span> vegan treats to little corners of New England.
         </p>
-        <p className='mb-2 text-center px-5 font-bold text-primaryText'>See you soon | SPRING 2025</p>
         <p className='mb-2 text-center px-5 text-primaryText'>★</p>
         <p className='mb-2 text-center px-3'>Follow us on Instagram for the latest.</p>
       </div>
