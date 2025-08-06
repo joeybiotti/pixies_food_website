@@ -67,7 +67,7 @@ export default function Home() {
   };
 
   return (
-    <div className='flex flex-col min-h-screen p-8 gap-12 sm:p-16' style={{ fontFamily: 'Gothic A1, sans-serif' }}>
+    <div className='flex flex-col min-h-screen pt-4 px-8 pb-8 gap-12 sm:pt-8 sm:px-16 sm:pb-16' style={{ fontFamily: 'Gothic A1, sans-serif' }}>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>Pixie Food Company - Vegan Pastries in Boston</title>
