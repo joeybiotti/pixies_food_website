@@ -12,6 +12,11 @@ const MainContent = () => {
   return (
     <main className='flex flex-col gap-4 items-center justify-start min-h-screen pt-6'>
       <Image src='/main_logo.svg' alt='Pixie logo' width={600} height={550} priority aria-label='Pixie logo' />
+{/*      
+
+     Commenting out until new menu is ready
+
+     
       <a
         href='#'
         className='px-4 py-2 text-white rounded transition'
@@ -28,7 +33,7 @@ const MainContent = () => {
           openModal();
         }}>
         See our special Vegan Nite Market Menu!
-      </a>
+      </a> */}
 
       <AnimatePresence>
         {isModalOpen && (
