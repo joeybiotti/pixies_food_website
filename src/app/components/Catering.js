@@ -21,8 +21,8 @@ const Catering = () => {
           />
         </div>
         <div className='flex justify-center'>
-          <picture>
-            <source media='(max-width: 768px)' srcSet='/catering_mobile.svg' />
+          {/* <picture>
+            <source media='(max-width: 768px)' srcSet='/catering.svg' />
             <Image
               src='/catering_announcement.svg'
               alt='Catering Announcement'
@@ -32,7 +32,7 @@ const Catering = () => {
               className='p-5 w-full h-auto'
               aria-label='Catering Announcement'
             />
-          </picture>
+          </picture> */}
         </div>
       </div>
     </div>
