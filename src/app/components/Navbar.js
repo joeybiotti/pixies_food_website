@@ -51,7 +51,6 @@ const Navbar = ({ toggleContent }) => {
   const menuItems = [
     { label: 'Home', value: 'main' },
     { label: 'About', value: 'about' },
-    { label: 'Our Menu', value: 'menu' },
     { label: 'Catering', value: 'catering' },
     { label: 'Contact', value: 'contact' },
     // TODO Finish the calendar component and then re-add
