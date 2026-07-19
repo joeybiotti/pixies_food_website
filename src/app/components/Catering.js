@@ -11,7 +11,7 @@ const Catering = () => {
       <div className='w-full sm:w-3/4 lg:w-1/2 mx-auto my-4 p-4 text-center'>
         <div className='flex justify-center mb-2'>
           <Image
-            src='/catering.svg'
+            src='/catering.png'
             alt='Catering'
             width={800}
             height={100}
