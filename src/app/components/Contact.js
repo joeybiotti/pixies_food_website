@@ -53,7 +53,7 @@ const Contact = () => {
       <div className='w-full sm:w-1/2 mx-auto my-4 p-4 text-center'>
         <div className='flex justify-center my-4'>
           <Image
-            src='/contactus.svg'
+            src='/contact_us.png'
             alt='Contact Us'
             width={800}
             height={100}
@@ -62,11 +62,6 @@ const Contact = () => {
             aria-label='Contact Us'
           />
         </div>
-        <p className='mt-5 mb-2 text-center text-lg'>
-          Get in touch with us for any questions, feedback, or support. We&apos;d love to hear from you!
-        </p>
-        <p className='text-primaryText font-extrabold text-lg'>Shoot us an Email!</p>
-
         <form onSubmit={handleSubmit} className='mt-6 space-y-4'>
           <div>
             <label htmlFor='name' className='block text-left font-semibold'>
